@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  app-server:
+    container_name: ke-server
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      APP_PORT: 3000
+      MONGO_USER: root
+      MONGO_PASSWORD: syd3452334
+      DB_HOST: mongodb
+      DB_PORT: 27017
+      DB_NAME: kilinc-emlak
+      PASSWORD_HASH_KEY: kilincEmlak_PasswordHashKey:3452334!
+    depends_on:
+      - mongodb
+  mongodb :
+    container_name: mongo-db
+    image : mongo
+    restart : always
+    ports :
+      - 27017:27017
+    volumes :
+      - data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: syd3452334
+      MONGO_INITDB_DATABASE: kilinc-emlak
+    
+volumes:
+  data:
