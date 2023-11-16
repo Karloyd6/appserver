@@ -1,4 +1,4 @@
-FROM node:19
+FROM node:19-slim
 WORKDIR /opt/k-server
 COPY /src .
 RUN npm install

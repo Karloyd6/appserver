@@ -16,7 +16,7 @@ services:
     depends_on:
       - mongodb
   mongodb :
-    container_name: mongo-db
+    container_name: mongodb
     image : mongo
     restart : always
     ports :
